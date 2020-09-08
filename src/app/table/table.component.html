@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Assessment</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<button type="button" color="primary" class="btn btn-info btn-lg button-margin" data-toggle="modal"
+  data-target="#myModal">Add</button> 
+<div cdkDropListGroup>
+  <div class="board">
+    <div class ="row">
+  <div class="col-lg-3">
+    <h2>Backlogs</h2>
+
+    <div cdkDropList [cdkDropListData]="ELEMENT_DATA" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box bg_color1" *ngFor="let item of ELEMENT_DATA" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <h2>Development</h2>
+
+    <div cdkDropList [cdkDropListData]="Development" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box bg_color2" *ngFor="let item of Development" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <h2>code Review</h2>
+
+    <div cdkDropList [cdkDropListData]="codereview" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box bg_color3" *ngFor="let item of codereview" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <h2>Acceptance</h2>
+
+    <div cdkDropList [cdkDropListData]="Acceptance" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box bg_color4" *ngFor="let item of Acceptance" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<!-- <div class="container"> -->
+
+  <!-- Trigger the modal with a button -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+   <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+          <div class="container">
+            <h4> Task Form</h4>
+            <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <label for="title"> Title </label>
+                <input type="text" formControlName="title" class="">
+              </div>
+              <div class="row">
+                <label for="Description">Description</label>
+                <input type="text" formControlName="description" class="">
+              </div>
+              <div class="row">
+                <label for="duedate"> Due Date </label>
+                <input type="date" formControlName="duedate" class="">
+              </div>
+              <button type="submit" [disabled]="taskForm.invalid">Submit</button>
+            </form>
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+
+    </div>
+  <!-- </div> -->
+
+</div>
+
+</div>
